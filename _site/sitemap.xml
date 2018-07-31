@@ -14,6 +14,9 @@
 <loc>http://172.16.50.95:4000/</loc>
 </url>
 <url>
+<loc>http://172.16.50.95:4000/jobs/</loc>
+</url>
+<url>
 <loc>http://172.16.50.95:4000/posts/</loc>
 </url>
 <url>
