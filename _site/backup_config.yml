@@ -46,6 +46,7 @@ author:
   # Used by `jekyll-seo-tag`:
   twitter:             blacklanterninc
   github:              blacklanternsecurity
+  facebook:            BLSRI
 
 # This text will appear in a `<small>` tag in the footer of every page.
 copyright:             >
@@ -64,7 +65,7 @@ permalink:             /:categories/:year-:month-:day-:title/
 
 # Pagination configuration (used by the `blog` layout)
 paginate:              5
-paginate_path:         blog/page-:num/ #/page-:num/
+paginate_path:         /page-:num/
 
 
 # Customizaton
@@ -99,7 +100,6 @@ defaults:
       accent_image:
         background:    rgb(32,32,32)
         overlay:       false
-
   # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
   # but we want them to be `WebPage`s:
   #- scope:
@@ -117,7 +117,7 @@ defaults:
   #  values:
   #    seo:
   #      type:          WebPage
-    scope:
+  - scope:
       path:            "" # an empty string means all files in the project
       type:            "posts" # previously 'post' in Jeckyll 2.2.
     values:

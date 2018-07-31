@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>http://172.16.50.95:4000/2018-07-31-test-blog/</loc>
+<loc>http://172.16.50.95:4000/blog/test/2018-07-31-test-blog/</loc>
 <lastmod>2018-07-31T00:00:00-07:00</lastmod>
 </url>
 <url>
@@ -15,9 +15,6 @@
 </url>
 <url>
 <loc>http://172.16.50.95:4000/posts/</loc>
-</url>
-<url>
-<loc>http://172.16.50.95:4000/CHANGELOG/</loc>
 </url>
 <url>
 <loc>http://172.16.50.95:4000/LICENSE/</loc>
