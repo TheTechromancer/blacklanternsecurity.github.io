@@ -1,0 +1,11 @@
+---
+---
+{% capture include_to_scssify %}{% include styles/style.scss %}{% endcapture %}{{ include_to_scssify | scssify }}
+/*
+Custom BLS CSS
+*/
+#rightlogo {
+	position:absolute;
+	top:0px;
+	right:30px;
+}
