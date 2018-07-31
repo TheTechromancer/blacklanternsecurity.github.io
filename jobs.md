@@ -11,6 +11,8 @@ order: 3
 4. [Devops](#job-title-software-developer---devops)
 5. [ProjectManager](#job-title-project-manager)
 
+---
+
 # <a name="SeniorPentester"></a>Job Title: Senior Penetration Tester
 
 **Location: Charleston, SC (home base) travelling required domestically and internationally**
@@ -53,6 +55,8 @@ __Responsibilities:__
 __Contact__
 
 spt201701@blacklanternsecurity.com
+
+--- 
 
 # <a name="WebDeveloper"></a>Job Title: Software Developer - Web Dev
 
@@ -101,6 +105,7 @@ __Contact__
 
 spt201701@blacklanternsecurity.com
 
+---
 
 # <a name="DataScientist"></a>Job Title: Software Developer - Data Scientist
 
@@ -134,6 +139,7 @@ __Contact__
 
 spt201701@blacklanternsecurity.com
 
+---
 
 # <a name="Devops"></a>Job Title: Software Developer - Devops
 
@@ -165,6 +171,8 @@ spt201701@blacklanternsecurity.com
 **Contact**
 
 spt201701@blacklanternsecurity.com
+
+---
 
 # <a name="ProjectManager"></a>Job Title: Project Manager
 
