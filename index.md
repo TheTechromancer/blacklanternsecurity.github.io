@@ -13,7 +13,7 @@ title: Black Lantern Security
 Services
 ========
 
-# [Penetration Testing](/pentesting)
+# [Penetration Testing](/pentesting/)
 
 For many organizations out there, the first time they get to see whether or not those expensive network security appliances or endpoint solutions work as promised is when they are under direct attack from a real-world adversary; much the same can be said for the incident handling process itself. No matter how good our gear is we never want to field our teams and play for the championship without having practiced our playbooks 100s of times before! Information Security Programs should be approached in exactly the same way. We need to give our defenders multiple if not continuous opportunities to implement and execute the defensive playbook. This is the BLS “Attack to Defend” mindset. That is, the fundamental objective of a Red Team Engagement or Penetration test is to provide for a better defense. We exist for the explicit purpose of improving and empowering network defenders, protecting the organization, and reducing overall risk.
 
@@ -25,7 +25,7 @@ For many organizations out there, the first time they get to see whether or not 
 * [Web Application Penetration Testing](/pentesting/#web-application-penetration-testing)
 * [Red Teaming](/pentesting/#red-teaming)
 
-# [Cyber-Security Assessments](/cyberassessments)
+# [Cyber-Security Assessments](/cyberassessments/)
 
 Organizations today have deployed numerous technologies to handle near constant communication and to support day-to-day operation of the business.  Businesses within virtually every market vertical have deployed IT systems to handle their most sensitive assets, infrastructure, and resources.  Although these changes have resulted in unprecedented gains in productivity, they also provide new and exciting opportunities for the attacker. Wireless, Web-enabled, Mobile, and VOIP technologies have all added to the “attack surface” that is exposed by an organization.  BLS offers a suite of CyberSecurity assessments to help organizations identify vulnerabilities, develop mitigation strategies, and better manage overall risk.
 
