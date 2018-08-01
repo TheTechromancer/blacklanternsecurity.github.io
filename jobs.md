@@ -5,11 +5,11 @@ order: 3
 ---
 
 # Table of Contents
-1. [SeniorPentester](#job-title-senior-penetration-tester)
-2. [WebDeveloper](#job-title-software-developer---web-dev)
-3. [DataScientist](#job-title-software-developer---data-scientist)
+1. [Senior Pentester](#job-title-senior-penetration-tester)
+2. [Web Developer](#job-title-software-developer---web-dev)
+3. [Data Scientist](#job-title-software-developer---data-scientist)
 4. [Devops](#job-title-software-developer---devops)
-5. [ProjectManager](#job-title-project-manager)
+5. [Project Manager](#job-title-project-manager)
 
 ---
 
