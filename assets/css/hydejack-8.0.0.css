@@ -15,3 +15,17 @@ Custom BLS CSS
 	height: auto;
 	float:right;	
 }
+/* Tweaks to sidebar css */
+.sidebar-about p {
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+    text-shadow: 1px 1px 8px black;
+}
+.sidebar-about h2 a {
+    text-shadow: 1px 1px 8px black;
+    color: white;
+}
+nav.sidebar-nav.heading a {
+    text-shadow: 1px 1px 8px black;
+}

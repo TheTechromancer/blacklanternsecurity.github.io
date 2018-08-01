@@ -4,7 +4,7 @@
   "short_name": "Black Lantern Security",
   "description": "Attach To Defend",
   "start_url": "/?utm_source=homescreen",
-  "theme_color": "rgb(25,55,71)",
+  "theme_color": "rgb(0,0,0)",
   "background_color": "#fff",
   "orientation": "portrait",
   "display": "standalone",
