@@ -30,7 +30,7 @@ Micheal Reski is a founding member and Principle Security Consultant for Black L
 ---
 
 **Larry Campbell**  
-Managing Parnter
+Managing Partner
 
 Larry Campbell is a 1993 graduate of North Carolina State University now residing in Charleston, SC. Founded by Mr. Campbell in 2003, Maybank Systems has excelled as Charleston’s leading IT Consultancy/Management firm. A former PGA Teaching Professional turned entrepreneur, Maybank Systems’ Managing Partner has taken on the responsibility of cultivating a dynamic and ever-evolving work experience for his employees as well as pursuing complete customer satisfaction for his diverse client base. Black Lantern Security is proud to add Mr. Campbell to their ownership team.  He will be spearheading our local, regional, and international market outreach as well lending his management expertise to operations. 
 
