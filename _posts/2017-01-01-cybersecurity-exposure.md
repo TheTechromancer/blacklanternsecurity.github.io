@@ -1,10 +1,12 @@
 ---
-title: What’s My Exposure?
+title: What's my exposure?
 layout: post
 description: What’s My Exposure? Cybersecurity and Regulatory Requirements for Financial
   Institutions
 author: pjh
 ---
+
+# What's my exposure?
 
 # Introduction
 
