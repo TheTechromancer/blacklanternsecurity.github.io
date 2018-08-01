@@ -1,5 +1,204 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://192.168.1.225:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://192.168.1.225:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-07-31T20:50:44-04:00</updated><id>http://192.168.1.225:4000/</id><title type="html">Black Lantern Security</title><subtitle>Attach To Defend
-</subtitle><author><name>Black Lantern Security</name><email>info@blacklanternsecurity.com</email></author><entry><title type="html">Signed Java Applet - Water Hole Attack</title><link href="http://192.168.1.225:4000/2016-05-01-signed-java-applet/" rel="alternate" type="text/html" title="Signed Java Applet - Water Hole Attack" /><published>2016-05-01T00:00:00-04:00</published><updated>2016-05-01T00:00:00-04:00</updated><id>http://192.168.1.225:4000/signed-java-applet</id><content type="html" xml:base="http://192.168.1.225:4000/2016-05-01-signed-java-applet/">&lt;p&gt;&lt;img src=&quot;/assets/img/signed-java-applet/java_warning.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://172.16.50.95:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://172.16.50.95:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-08-01T05:19:52-07:00</updated><id>http://172.16.50.95:4000/</id><title type="html">Black Lantern Security</title><subtitle>Attach To Defend
+</subtitle><author><name>Black Lantern Security</name><email>info@blacklanternsecurity.com</email></author><entry><title type="html">Introduction</title><link href="http://172.16.50.95:4000/2017-01-01-cybersecurity-exposure/" rel="alternate" type="text/html" title="Introduction" /><published>2017-01-01T00:00:00-08:00</published><updated>2017-01-01T00:00:00-08:00</updated><id>http://172.16.50.95:4000/cybersecurity-exposure</id><content type="html" xml:base="http://172.16.50.95:4000/2017-01-01-cybersecurity-exposure/">&lt;p&gt;Financial institutions and businesses have been making risk-based decisions in order to protect what’s most important since their inception. The addition of information-systems and applications only serves to extend many of the concepts they are already familiar with, including regulations, risk, assets, intellectual property, vulnerabilities, threats, and threat multipliers. It’s important to understand how cybersecurity requirements for these systems add to what is already a long list of statutory and regulatory requirements. However, what’s more important is not to lose sight of the fact that those information-systems and security controls exist to support the business, not the other way around. They should be increasing productivity, driving revenue, generating profits and reducing risk, not dragging them in the opposite direction. Financial institutions understand how to analyse risk in order to better protect their investments; cybersecurity should be no different. Regulatory requirements and compliance will start an organization down the right path. However, an honest and thorough approach to securing critical information-systems and the data they contain will simultaneously hit those “check boxes” and smartly align those resources with business objectives.&lt;/p&gt;
+
+&lt;h1 id=&quot;overview&quot;&gt;Overview&lt;/h1&gt;
+
+&lt;p&gt;Financial institutions in the U.S. have almost always been subject to a myriad of statutory and regulatory requirements&lt;/p&gt;
+
+&lt;p&gt;[&lt;a href=&quot;/2017-01-01-cybersecurity-exposure/#reference-1&quot;&gt;1&lt;/a&gt;]. In some cases these regulations help protect the marketplace from instabilities introduced by unscrupulous lending practices[&lt;a href=&quot;/2017-01-01-cybersecurity-exposure/#reference-2&quot;&gt;2&lt;/a&gt;]. For others, they are an attempt to address accounting fraud through accurate and reliable reporting[&lt;a href=&quot;/2017-01-01-cybersecurity-exposure/#reference-3&quot;&gt;3&lt;/a&gt;]. Still others seek to protect the information provided by consumers when purchasing products and services[&lt;a href=&quot;/2017-01-01-cybersecurity-exposure/#reference-4&quot;&gt;4&lt;/a&gt;]. Regardless of the specific law or regulation, there are information-systems and applications that facilitate and support the business functions that simultaneously make money for the institution and satisfy regulatory requirements. This post will attempt to dissect and understand how statutory and regulatory requirements impact cybersecurity requirements for U.S financial institutions.
+With regard to information-systems and cybersecurity requirements, the most significant pieces of legislation passed to date include:&lt;/p&gt;
+
+&lt;p&gt;Gramm-Leach-Bliley Act (GLBA) of 1999 , Pub.L.106-102
+Sarbanes-Oxley Act (SOX) of 2002, Pub.L.107-204
+Dodd-Frank Wall Street Reform and Consumer Protection Act of 2010, Pub.L.111-203
+Although there are other laws that directly and/or indirectly impact cybersecurity requirements, one could argue that any regulations that proceed from these laws are subsumed by the requirements for the 3 pieces of legislation above. For example, the disposal of consumer data specified in the “Fair and Accurate Credit Transactions Act”[&lt;a href=&quot;/2017-01-01-cybersecurity-exposure/#reference-5&quot;&gt;5&lt;/a&gt;] is already covered by regulatory guidance for GLBA[&lt;a href=&quot;/2017-01-01-cybersecurity-exposure/#reference-6&quot;&gt;6&lt;/a&gt;].&lt;/p&gt;
+
+&lt;h1 id=&quot;gramm-leach-bliley-act-glba&quot;&gt;Gramm-Leach-Bliley Act (GLBA)&lt;/h1&gt;
+&lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
+&lt;p&gt;Out of the 3 pieces of legislation above, it could be argued that GLBA most directly impacts cybersecurity requirements for financial institutions through the privacy and safeguards rules. The privacy rule is intended to protect consumer financial privacy by placing limits on the release of non-public personal information (NPI) to unaffiliated third parties. NPI[&lt;a href=&quot;/2017-01-01-cybersecurity-exposure/#reference-7&quot;&gt;7&lt;/a&gt;] includes income, social security numbers, payment history, and loan and deposit balances. The safeguards rule[&lt;a href=&quot;/2017-01-01-cybersecurity-exposure/#reference-8&quot;&gt;8&lt;/a&gt;] requires the financial institution to implement a security program to protect this NPI. The centrepiece of this implementation is the risk analysis and overall risk management process. The high level objectives for the security program are to:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Inventory and classify information-systems hardware and software;&lt;/li&gt;
+  &lt;li&gt;Assess vulnerabilities in information-systems and business processes;&lt;/li&gt;
+  &lt;li&gt;Review threats to critical resources and NPI;&lt;/li&gt;
+  &lt;li&gt;Quantify the risks to critical resources, NPI, and business processes;&lt;/li&gt;
+  &lt;li&gt;Develop and implement a mitigation strategy, which includes implementation and updates for critical security controls;&lt;/li&gt;
+  &lt;li&gt;Monitor and manage organizational risk; and&lt;/li&gt;
+  &lt;li&gt;Modify security controls and update the security program as needed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;impacted-financial-institutions&quot;&gt;Impacted Financial Institutions&lt;/h3&gt;
+
+&lt;p&gt;Organizations that are “significantly engaged” in “financial activities” are subject to the regulatory requirements that proceed from the privacy and safeguards rules of GLBA. According to Bank Holding Company Act of 1956[&lt;a href=&quot;/2017-01-01-cybersecurity-exposure/#reference-9&quot;&gt;9&lt;/a&gt;], financial activities include, but are not limited to:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;lending, exchanging, transferring, investing for others, or safeguarding money or securities&lt;/li&gt;
+  &lt;li&gt;brokering loans&lt;/li&gt;
+  &lt;li&gt;servicing loans&lt;/li&gt;
+  &lt;li&gt;debt collecting&lt;/li&gt;
+  &lt;li&gt;real estate settlement services&lt;/li&gt;
+  &lt;li&gt;insuring, guaranteeing, or indemnifying against loss, harm, damage, illness, disability, or death, or providing and issuing annuities, and acting as principal, agent, or broker for purposes of the foregoing, in any State&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;enforcement&quot;&gt;Enforcement&lt;/h3&gt;
+
+&lt;p&gt;GLBA regulations are enforced by a number of organizations. The enforcement body depends on the nature of the financial institution being considered. Enforcement organizations currently include[&lt;a href=&quot;/2017-01-01-cybersecurity-exposure/#reference-10&quot;&gt;10&lt;/a&gt;]:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Consumer Financial Protection Bureau (CFPB)&lt;/li&gt;
+  &lt;li&gt;Federal Trade Commission (FTC)&lt;/li&gt;
+  &lt;li&gt;Securities and Exchange Commission (SEC)&lt;/li&gt;
+  &lt;li&gt;Federal Financial Institutions Examination Council (FFIEC)&lt;/li&gt;
+  &lt;li&gt;Federal Reserve Board (FRB)&lt;/li&gt;
+  &lt;li&gt;Federal Deposit Insurance Corporation (FDIC)&lt;/li&gt;
+  &lt;li&gt;National Credit Union Administration (NCUA)&lt;/li&gt;
+  &lt;li&gt;Office of the Comptroller of the Currency (OCC)&lt;/li&gt;
+  &lt;li&gt;Office of Thrift Supervision (OTS)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The FFIEC was established in 1979 and includes principals from the FRB, FDIC, NCUA, OCC, and CFPB. The FFIEC published an information security handbook which “addresses regulatory expectations regarding the security of all information-systems and information maintained by or on behalf of a financial institution, including a financial institution’s own information and that of all of its customers.”[&lt;a href=&quot;/2017-01-01-cybersecurity-exposure/#reference-11&quot;&gt;11&lt;/a&gt;] The FFIEC handbook and several additional resources for guiding organizations through GLBA regulatory requirements are included in section 4 below.&lt;/p&gt;
+
+&lt;h3 id=&quot;resources&quot;&gt;Resources&lt;/h3&gt;
+
+&lt;p&gt;The resources below provide prescriptive steps for addressing regulatory requirements. These resources are intended for organizations that are ready to ask, “what do I do now?”&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;FFIEC Information Security Handbook
+http://ithandbook.ffiec.gov/media/resources/3354/con-15usc_6801_6805-gramm_leach_bliley_act.pdf&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;FFIEC Cybersecurity Assessment Tool
+https://www.ffiec.gov/cyberassessmenttool.htm&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Critical Security Controls
+https://www.cisecurity.org/&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Critical Security Controls Master Mapping
+http://www.auditscripts.com/download/2742/&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;dodd-frank-wall-street-reform-and-consumer-protection-act&quot;&gt;Dodd-Frank Wall Street Reform and Consumer Protection Act&lt;/h1&gt;
+&lt;h3 id=&quot;summary-1&quot;&gt;Summary&lt;/h3&gt;
+
+&lt;p&gt;Although Dodd-Frank enacted far-reaching reforms, it only appears to indirectly impact the cybersecurity requirements for financial institutions. Title X of Dodd-Frank, known as the Consumer Financial Protection Act of 2010, established the Consumer Financial Protection Bureau (CFPB) and empowered it with the authority to issue regulations and take enforcement actions under Title V of GLBA[&lt;a href=&quot;/2017-01-01-cybersecurity-exposure/#reference-12&quot;&gt;12&lt;/a&gt;]. “Title V” refers to the GLBA privacy rule detailed in section 3 above. In short, it transfers a significant amount of enforcement authority to the CFPB with regard to enforcing the GLBA privacy rule to protect consumer financial privacy and NPI. The safeguards rule and the regulations that prescribe administrative, technical, and physical security controls to protect that NPI appear unchanged.&lt;/p&gt;
+
+&lt;h3 id=&quot;impacted-financial-institutions13&quot;&gt;Impacted Financial Institutions[&lt;a href=&quot;/2017-01-01-cybersecurity-exposure/#reference-13&quot;&gt;13&lt;/a&gt;]&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;lending, exchanging, transferring, investing for others, or safeguarding money or securities&lt;/li&gt;
+  &lt;li&gt;brokering loans&lt;/li&gt;
+  &lt;li&gt;servicing loans&lt;/li&gt;
+  &lt;li&gt;debt collecting&lt;/li&gt;
+  &lt;li&gt;real estate settlement services&lt;/li&gt;
+  &lt;li&gt;insuring, guaranteeing, or indemnifying against loss, harm, damage, illness, disability, or death, or providing and issuing annuities, and acting as principal, agent, or broker for purposes of the foregoing, in any State&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;enforcement-1&quot;&gt;Enforcement&lt;/h3&gt;
+
+&lt;p&gt;The Security and Exchange Commission (SEC) is responsible for the enforcement of the provisions of Dodd-Frank.&lt;/p&gt;
+
+&lt;h3 id=&quot;resources-1&quot;&gt;Resources&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Privacy Protection for Customer Financial Information
+https://fas.org/sgp/crs/misc/RS20185.pdf&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The Dodd-Frank Wall Street Reform and Consumer Protection Act: Title X, The Consumer Financial Protection Bureau
+http://www.llsdc.org/assets/DoddFrankdocs/crs-r41338.pdf&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;sarbanes-oxley-act-sox&quot;&gt;Sarbanes-Oxley Act (SOX)&lt;/h1&gt;
+&lt;h3 id=&quot;summary-2&quot;&gt;Summary&lt;/h3&gt;
+
+&lt;p&gt;Sarbanes Oxley (SOX) was enacted as part of the US government’s response to the financial and accounting scandals tied to Worldcom, Enron, and Arthur Anderson Accounting in the early 2000s. One of the main provisions in SOX requires corporations to implement internal controls to ensure accurate and reliable corporate disclosures. Corporations must also annually assess the effectiveness of its internal controls and report findings to the SEC. Since many of the internal controls as well as the reporting mechanisms themselves are dependent on information-systems and applications, the impact on the organization’s cybersecurity requirements is significant. In this case the regulatory requirements that proceed from SOX dovetail almost perfectly with the goal of information security, which is to protect the confidentiality, integrity, and availability (CIA) of information-systems and the financial data they contain.&lt;/p&gt;
+
+&lt;h3 id=&quot;impacted-financial-institutions14&quot;&gt;Impacted Financial Institutions[&lt;a href=&quot;/2017-01-01-cybersecurity-exposure/#reference-14&quot;&gt;14&lt;/a&gt;]&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Publically Traded Companies in the US&lt;/li&gt;
+  &lt;li&gt;Publically Traded Non-US Companies doing business in the US&lt;/li&gt;
+  &lt;li&gt;Private companies preparing for an Initial Public Offering (IPO)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;enforcement-2&quot;&gt;Enforcement&lt;/h3&gt;
+
+&lt;p&gt;SOX does not provide prescriptive actions for securing Information-systems and assessing specific security controls. As part of SOX, the Public Company Accounting Oversight Board (PCAOB) was formed to create, provide, and enforce audit guidelines for internal controls. Unfortunately, the PCAOB includes very little practical guidance for addressing IT security controls[&lt;a href=&quot;/2017-01-01-cybersecurity-exposure/#reference-15&quot;&gt;15&lt;/a&gt;]. The PCAOB subsequently selected a framework for creating and implementing internal controls created by the Committee of Sponsoring Organizations (COSO). However, COSO is also not specific enough for information security professionals15. There are several frameworks that provide specific prescriptive guidance for implementing and assessing security controls for information-systems and applications. These include COBIT[&lt;a href=&quot;/2017-01-01-cybersecurity-exposure/#reference-1&quot;&gt;16&lt;/a&gt;] and the CIS Critical Security Controls[&lt;a href=&quot;/2017-01-01-cybersecurity-exposure/#reference-17&quot;&gt;17&lt;/a&gt;].&lt;/p&gt;
+
+&lt;h3 id=&quot;resources-2&quot;&gt;Resources&lt;/h3&gt;
+
+&lt;p&gt;It’s important to note that the frameworks below are fundamentally no different than some of the resources listed in section 3.4 for GLBA compliance. In fact, the “Critical Security Controls Master Mapping” document below explicitly maps each of the critical security controls to an equivalent activity/domain in the FFEIC CAT. There are lots of resources available for organizations looking to start down the path of regulatory compliance. However, one could easily argue that they all boil down to the same set of basic security principles.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Critical Security Controls
+https://www.cisecurity.org/&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Critical Security Controls Master Mapping
+http://www.auditscripts.com/download/2742/&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;black-lantern-security-bls-services-and-subscriptions&quot;&gt;Black Lantern Security (BLS) Services and Subscriptions&lt;/h1&gt;
+
+&lt;p&gt;BLS provides a suite of security services and subscriptions to help organizations develop, implement, and mature their information security program. BLS services and subscriptions have been designed according security best practices and are ideal for any organization looking to build a solid security program that supports GLBA and SOX compliance.  Our methodologies and approach have been developed over the last decade as the founding partners secured some of the Nations most sensitive systems. Services and subscriptions include:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Risk Analysis&lt;/li&gt;
+  &lt;li&gt;Vulnerability Assessment&lt;/li&gt;
+  &lt;li&gt;Penetration Testing&lt;/li&gt;
+  &lt;li&gt;Wireless Assessment&lt;/li&gt;
+  &lt;li&gt;Web Application Assessment&lt;/li&gt;
+  &lt;li&gt;Secure Code Review&lt;/li&gt;
+  &lt;li&gt;Centralized Logging and Alerting&lt;/li&gt;
+  &lt;li&gt;Offensive Security Tools and Utilities&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;Regardless of where the regulations proceed from, engineering your information-systems and associated security controls will always come down to the same basic set of security principles. If things are implemented correctly then satisfying the regulatory requirements almost becomes an after thought. If you set out to secure what’s most important to the business and decisions are based on what’s critical to the near- and long-term success of the business, then compliance comes naturally. Compliance is not the challenge, the challenge lies in understanding where your crown jewels reside, the types of attacks your most likely to see, and how best to tune your people, process, and tools to defend and evolve.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;p&gt;[1]&lt;a id=&quot;reference-1&quot;&gt;&lt;/a&gt; Federal Reserve Act, https://en.wikipedia.org/wiki/Federal_Reserve_Act&lt;/p&gt;
+
+&lt;p&gt;[2]&lt;a id=&quot;reference-2&quot;&gt;&lt;/a&gt; Dodd-Frank Wall Street Reform Act, https://www.gpo.gov/fdsys/pkg/PLAW-111publ203/html/PLAW-111publ203.htm&lt;/p&gt;
+
+&lt;p&gt;[3]&lt;a id=&quot;reference-3&quot;&gt;&lt;/a&gt; Sarbanes-Oxley Act, https://www.gpo.gov/fdsys/pkg/PLAW-107publ204/html/PLAW-107publ204.htm&lt;/p&gt;
+
+&lt;p&gt;[4]&lt;a id=&quot;reference-4&quot;&gt;&lt;/a&gt; Gramm-Leach-Bliley Act, https://www.gpo.gov/fdsys/pkg/PLAW-106publ102/html/PLAW-106publ102.htm&lt;/p&gt;
+
+&lt;p&gt;[5]&lt;a id=&quot;reference-5&quot;&gt;&lt;/a&gt; Fair and Accurate Credit Transactions Act, https://www.gpo.gov/fdsys/pkg/PLAW-108publ159/html/PLAW-108publ159.htm&lt;/p&gt;
+
+&lt;p&gt;[6]&lt;a id=&quot;reference-6&quot;&gt;&lt;/a&gt; FFEIC CyberSecurity Assessment Tool (CAT), https://www.ffiec.gov/cyberassessmenttool.htm&lt;/p&gt;
+
+&lt;p&gt;[7]&lt;a id=&quot;reference-7&quot;&gt;&lt;/a&gt; https://www.ftc.gov/tips-advice/business-center/guidance/how-comply-privacy-consumer-financial-information-rule-gramm&lt;/p&gt;
+
+&lt;p&gt;[8]&lt;a id=&quot;reference-8&quot;&gt;&lt;/a&gt; https://www.ftc.gov/tips-advice/business-center/guidance/financial-institutions-customer-information-complying&lt;/p&gt;
+
+&lt;p&gt;[9]&lt;a id=&quot;reference-9&quot;&gt;&lt;/a&gt; https://fraser.stlouisfed.org/scribd/?title_id=984&amp;amp;filepath=/files/docs/historical/congressional/1956_bankholdact_publiclaw511.pdf&lt;/p&gt;
+
+&lt;p&gt;[10]&lt;a id=&quot;reference-10&quot;&gt;&lt;/a&gt; http://ithandbook.ffiec.gov/media/resources/3354/con-15usc_6801_6805-gramm_leach_bliley_act.pdf&lt;/p&gt;
+
+&lt;p&gt;[11]&lt;a id=&quot;reference-11&quot;&gt;&lt;/a&gt; http://ithandbook.ffiec.gov/it-booklets/information-security/introduction.aspx&lt;/p&gt;
+
+&lt;p&gt;[12]&lt;a id=&quot;reference-12&quot;&gt;&lt;/a&gt; https://fas.org/sgp/crs/misc/RS20185.pdf&lt;/p&gt;
+
+&lt;p&gt;[13]&lt;a id=&quot;reference-13&quot;&gt;&lt;/a&gt; https://fraser.stlouisfed.org/scribd/?title_id=984&amp;amp;filepath=/files/docs/historical/congressional/1956_bankholdact_publiclaw511.pdf&lt;/p&gt;
+
+&lt;p&gt;[14]&lt;a id=&quot;reference-14&quot;&gt;&lt;/a&gt; http://www.sarbanes-oxley-101.com/sarbanes-oxley-faq.htm&lt;/p&gt;
+
+&lt;p&gt;[15]&lt;a id=&quot;reference-15&quot;&gt;&lt;/a&gt; https://www.sans.org/reading-room/whitepapers/legal/overview-sarbanes-oxley-information-security-professional-1426&lt;/p&gt;
+
+&lt;p&gt;[16]&lt;a id=&quot;reference-16&quot;&gt;&lt;/a&gt; http://www.isaca.org/cobit/pages/default.aspx&lt;/p&gt;
+
+&lt;p&gt;[17]&lt;a id=&quot;reference-17&quot;&gt;&lt;/a&gt; https://www.cisecurity.org/critical-controls.cfm&lt;/p&gt;</content><author><name>Dr. Philip Hartlieb</name><email>philip@blacklanternsecurity.com</email></author><summary type="html">Introduction</summary></entry><entry><title type="html">Signed Java Applet - Water Hole Attack</title><link href="http://172.16.50.95:4000/2016-05-01-signed-java-applet/" rel="alternate" type="text/html" title="Signed Java Applet - Water Hole Attack" /><published>2016-05-01T00:00:00-07:00</published><updated>2016-05-01T00:00:00-07:00</updated><id>http://172.16.50.95:4000/signed-java-applet</id><content type="html" xml:base="http://172.16.50.95:4000/2016-05-01-signed-java-applet/">&lt;p&gt;&lt;img src=&quot;/assets/img/signed-java-applet/java_warning.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;One of the common attack vectors deals with water hole attacks. These attacks are used to tempt users to click on documents, links, and content that will allow execution onto their box. These can take many forms: Microsoft Office macros (Excel, Word), Flash enabled sites, Javascript attacks, and specifically Java signed applets. We’re going to walk you through creating your own java signing certificate (If you don’t have one) and then how to code sign your java applet within NetBeans.&lt;/p&gt;
 

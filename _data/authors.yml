@@ -94,3 +94,19 @@ mtr:
 #  accent_image:
 #    background:      '#202020'
 #    overlay:         false
+
+# Another author (optional)
+pjh:
+  name:              Dr. Philip Hartlieb
+  email:             philip@blacklanternsecurity.com
+  about:             |
+    Dr. Philip Hartlieb is a principal in Black Lantern Security.
+
+#    Open `_data/authors.yml` to edit this text.
+#  picture:           https://placehold.it/128x128
+  twitter:           pjhartlieb
+  github:            pjhartlieb
+#  accent_color:      '#268bd2'
+#  accent_image:
+#    background:      '#202020'
+#    overlay:         false
