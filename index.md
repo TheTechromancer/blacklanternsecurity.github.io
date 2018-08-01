@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Black Lantern Security
+cover: true
 ---
 
 # Why Choose Black Lantern?
