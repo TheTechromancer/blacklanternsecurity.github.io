@@ -17,6 +17,8 @@
 layout: base
 ---
 
+<h1 class="page-title">{{ page.title }}</h1>
+<hr>
 {% assign plugins = site.plugins | default:site.gems %}
 
 {% if plugins contains 'jekyll-paginate' %}
