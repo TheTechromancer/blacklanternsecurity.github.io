@@ -4,6 +4,8 @@ menu: true
 title: Contact Us
 order: 4
 ---
+<!-- added bootstrap -->
+<link rel="stylesheet" href="/assets/css/main.css">
 
 <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=1%20Cool%20Blow%20Suite%20322%2C%20Charleston%2C%20SC%2029403&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.maps-erstellen.de"></a></div><style>.mapouter{text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
 
@@ -11,13 +13,21 @@ order: 4
 <br>
 
 <br>
-<form action="https://formspree.io/info@blacklanternsecurity.com"
-      method="POST">
-    <input type="text" name="name" placeholder="Your Name">
-    <input type="email" name="_replyto" placeholder="Your Email">
-    <br>
-    <textarea name="message" placeholder="Your Message" cols="50" rows="4"></textarea>
-    <input type="hidden" name="_subject" value="Website Submmission" />
-    <input type="submit" value="Send">
-    <input type="text" name="_gotcha" style="display:none" />
+<form>
+  <div class="form-group">
+    <label for="FormControlInputName">Name</label>
+    <input type="text" class="form-control" id="FormControlInputName" name="name" placeholder="First Last">
+  </div>
+ <div class="form-group">
+    <label for="FormControlInputEmail">Email</label>
+    <input type="email" class="form-control" id="FormControlInputEmail"  name="_replyto" placeholder="name@domain.com">
+  </div>
+
+  <div class="form-group">
+    <label for="FormControlTextarea">Your Message</label>
+    <textarea class="form-control" id="FormControlTextarea" rows="3"></textarea>
+  </div>
+  <input type="hidden" name="_subject" value="Website Submmission">
+    <input type="submit" class="btn btn-info" value="Send">
+    <input type="text" name="_gotcha" style="display:none">
 </form>

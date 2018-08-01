@@ -23,7 +23,7 @@
     {% capture to_scssify %}{% include styles/inline.scss %}{% endcapture %}
     {{ to_scssify | scssify }}
   </style>
-
+ 
   <link rel="preload" as="style" href="{{ style_url | relative_url }}" id="_stylePreload">
   <script>setRel('_stylePreload');</script>
 
@@ -48,4 +48,5 @@
   </noscript>
 {% endif %}
 {% include head/page-style.html %}
+
 <!--<![endif]-->
