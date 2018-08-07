@@ -6,10 +6,11 @@ order: 3
 
 # Table of Contents
 1. [Senior Pentester](#job-title-senior-penetration-tester)
-2. [Web Developer](#job-title-software-developer---web-dev)
-3. [Data Scientist](#job-title-software-developer---data-scientist)
-4. [Devops](#job-title-software-developer---devops)
-5. [Project Manager](#job-title-project-manager)
+2. [Junior Pentester](#job-title-junior-penetration-tester)
+3. [Web Developer](#job-title-software-developer---web-dev)
+4. [Data Scientist](#job-title-software-developer---data-scientist)
+5. [Devops](#job-title-software-developer---devops)
+6. [Project Manager](#job-title-project-manager)
 
 ---
 
@@ -26,6 +27,50 @@ __Required__
 * Must be US citizen (must be willing to submit to federal, state, and local background checks and other requirements).
 * One or more professional certifications including OSCP, GPEN, GWAPT, etc.
 * Possess in-depth knowledge of Windows, Unix, TCP/IP, IDS/IPS, and web content filtering.
+* Demonstrated ability to:
+  * Adhere to the highest standards of honesty and scientific and business integrity.
+  * Think critically about complex problems and situations.
+  * Consider emerging vulnerabilities and threats from within the context of organizational risk and business impact(s).
+  * Develop novel attack vectors based on newly discovered vulnerabilities.
+  * Develop home-grown software solutions and utilities for computer network attack (CNA) and computer network defense (CND).
+  * Apply industry standards and best practices including the Penetration Testing Execution Standard (PTES) and the Mitre Adversarial Tactics, Techniques, and Common Knowledge (ATT&CK) Framework.
+  * Go beyond automated and “push-button” attack tools and utilities.
+* Possess a basic understanding of regulatory standards and requirements including the Health Insurance Portability and Accountability Act (HIPAA), Payment Card Industry Data Security Standard (PCI-DSS), and the Gramm-Leach-Bliley Act (GLBA).
+
+__Responsibilities:__
+
+* Project-Based
+  * Develop and deliver test strategies for attacking and assessing complex and distributed systems.
+  * Scope and execute penetration tests based on customer goals and objectives.
+  * Provide representative tactics, techniques, and procedures (TTPs) for opportunistic, advanced, and sophisticated attackers according to customer goals and objectives.
+  * Provide technical leadership and guidance for junior penetration testers during all phases of an assessment.
+  * Prepare clear and concise situation reports and activity summaries for BLS customers and senior leadership.
+  * Execute verification and validation testing for customer mitigations and fixes.
+  * Develop and deliver walkthrough(s), proof(s) of concept (PoCs), articles, and formal presentations.
+* Research and Development (R&D)
+  * Attend and/or present at professional conferences and events.
+  * Conduct independent research for:
+  * The development of novel attack methods.
+  * Discovering new and/or undisclosed vulnerabilities.
+
+__Contact__
+
+spt201701@blacklanternsecurity.com
+
+--- 
+
+# <a name="JuniorPentester"></a>Job Title: Junior Penetration Tester
+
+**Location: Charleston, SC (home base) travelling required domestically and internationally**
+
+__Required__
+
+* Technical Cybersecurity experience.
+* Experience in penetration testing, computer network attack (CNA), and/or computer network defense (CND).
+* Experience with basic scripting languages including bash and/or PowerShell.
+* Experience with at least one object-oriented programming language (Python, Ruby, Java, etc.).
+* Must be US citizen (must be willing to submit to federal, state, and local background checks and other requirements).
+* Knowledge of Windows, Unix, TCP/IP, IDS/IPS, and web content filtering.
 * Demonstrated ability to:
   * Adhere to the highest standards of honesty and scientific and business integrity.
   * Think critically about complex problems and situations.
