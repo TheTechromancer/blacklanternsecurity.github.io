@@ -84,10 +84,8 @@ __Required__
 __Responsibilities:__
 
 * Project-Based
-  * Develop and deliver test strategies for attacking and assessing complex and distributed systems.
-  * Scope and execute penetration tests based on customer goals and objectives.
+  * Help develop and deliver test strategies for attacking and assessing complex and distributed systems.
   * Provide representative tactics, techniques, and procedures (TTPs) for opportunistic, advanced, and sophisticated attackers according to customer goals and objectives.
-  * Provide technical leadership and guidance for junior penetration testers during all phases of an assessment.
   * Prepare clear and concise situation reports and activity summaries for BLS customers and senior leadership.
   * Execute verification and validation testing for customer mitigations and fixes.
   * Develop and deliver walkthrough(s), proof(s) of concept (PoCs), articles, and formal presentations.
