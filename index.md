@@ -32,6 +32,7 @@ Organizations today have deployed numerous technologies to handle near constant 
 
 **Types of Assessments:**
 
+* [Risk Assessment](/cyberassessments/#risk-assessment)
 * [Vulnerability Assessment](/cyberassessments/#vulnerability-assessment)
 * [Web Application Assessment](/cyberassessments/#web-application-assessment)
 * [Wireless Assessment](/cyberassessments/#wireless-assessment)

@@ -7,10 +7,11 @@ order: 3
 # Table of Contents
 1. [Senior Pentester](#job-title-senior-penetration-tester)
 2. [Junior Pentester](#job-title-junior-penetration-tester)
-3. [Web Developer](#job-title-software-developer---web-dev)
-4. [Data Scientist](#job-title-software-developer---data-scientist)
-5. [Devops](#job-title-software-developer---devops)
-6. [Project Manager](#job-title-project-manager)
+3. [Security Engineer](#job-title-security-engineer)
+4. [Web Developer](#job-title-software-developer---web-dev)
+5. [Data Scientist](#job-title-software-developer---data-scientist)
+6. [Devops](#job-title-software-developer---devops)
+7. [Project Manager](#job-title-project-manager)
 
 ---
 
@@ -55,7 +56,7 @@ __Responsibilities:__
 
 __Contact__
 
-spt201701@blacklanternsecurity.com
+spt201901@blacklanternsecurity.com
 
 --- 
 
@@ -97,7 +98,55 @@ __Responsibilities:__
 
 __Contact__
 
-spt201701@blacklanternsecurity.com
+spt201901@blacklanternsecurity.com
+
+--- 
+
+# <a name="Security Engineer"></a>Job Title: Security Engineer
+
+**Location: Charleston, SC (home base) travelling required domestically and internationally**
+
+__Responsibilities__
+* Project-Based
+  * Coordinate and execute incident response for customers in multiple market verticals including Finance, Healthcare, and Retail Operations.
+  * Coordinate and execute Threat Hunting engagements
+  * Develop detailed “runbooks” for responding to well-known attacks that can be tailored to specific customer environments.
+  * Prepare clear and concise situation reports and activity summaries for BLS customers and Senior Leadership.
+  * Execute verification and validation testing for customer mitigations and fixes.
+  * Develop and deliver walkthrough(s), proof(s) of concept (PoCs), articles, and formal presentations.
+* Research and Development (R&D)
+  * Attend and/or present at professional conferences and events
+  * Participate in the development of:
+  * Novel defensive tactics, techniques, and procedures (TTPs)
+  * Applications, utilities, and scripts.
+  * Threat hunting capabilities consistent with the Mitre Adversarial Tactics, Techniques, and Common Knowledge (ATT&CK) framework as well as emerging offensive TTPs
+  * DFIR techniques, tactics, and capabilities.
+
+__Requirements__
+* Experience coordinating and performing incident response.
+* Experience with basic scripting languages including python, bash and/or PowerShell.
+* Experience with at least one object-oriented programming language (Python, Ruby, Java, etc.).
+* Experience hardening \*nix and Windows systems images and builds.
+* Experience parsing, consuming, and understanding log sources from variety of devices/systems.
+* Experience with one or more SIEMs (ArcSight, LogRythm, AlienVault, etc.)
+* Experience with DFIR toolsets (Sleuth Kit, Encase, FTK)
+* Must be US citizen (must be willing to submit to federal, state, and local background checks and other requirements).
+* Knowledge of Windows, Unix, TCP/IP, IDS/IPS, and web content filtering.
+* Demonstrated ability to:
+  * Adhere to the highest standards of honesty and scientific and business integrity.
+  * Think critically about complex problems and situations.
+  * Understand threat models and effectively communicate risk and impact.
+  * Apply industry standards and best practices including the Mitre ATT&CK framework and NIST Incident Response (800-61).
+  * Possess a basic understanding of regulatory standards and requirements including the Health Insurance Portability and Accountability Act (HIPAA), Payment Card Industry Data Security Standard (PCI-DSS), and the Gramm-Leach-Bliley Act (GLBA).
+
+__Preferences__
+* Experience operating within a Security Operations Center (SOC).
+* Experience with Splunk or ElasticSearch.
+* Experience building, modifying, and/or deploying open source defensive tool sets
+
+__Contact__
+
+spt201901@blacklanternsecurity.com
 
 --- 
 
@@ -146,7 +195,7 @@ Development of a threat management web application that includes:
 
 __Contact__
 
-spt201701@blacklanternsecurity.com
+spt201901@blacklanternsecurity.com
 
 ---
 
@@ -180,7 +229,7 @@ __Responsibilities:__
 
 __Contact__
 
-spt201701@blacklanternsecurity.com
+spt201901@blacklanternsecurity.com
 
 ---
 
@@ -213,7 +262,7 @@ spt201701@blacklanternsecurity.com
 
 **Contact**
 
-spt201701@blacklanternsecurity.com
+spt201901@blacklanternsecurity.com
 
 ---
 
@@ -251,4 +300,4 @@ spt201701@blacklanternsecurity.com
 
 **Contact**
 
-spt201701@blacklanternsecurity.com
+spt201901@blacklanternsecurity.com
