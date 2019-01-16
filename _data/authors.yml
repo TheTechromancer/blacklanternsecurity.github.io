@@ -110,3 +110,19 @@ pjh:
 #  accent_image:
 #    background:      '#202020'
 #    overlay:         false
+
+# Another author (optional)
+jem:
+  name:              Joel Moore
+  email:             joel.moore@blacklanternsecurity.com
+  about:             |
+    Joel Moore is a penetration tester at Black Lantern Security.
+
+#    Open `_data/authors.yml` to edit this text.
+#  picture:           https://placehold.it/128x128
+  twitter:           thetechr0mancer
+  github:            TheTechromancer
+#  accent_color:      '#268bd2'
+#  accent_image:
+#    background:      '#202020'
+#    overlay:         false

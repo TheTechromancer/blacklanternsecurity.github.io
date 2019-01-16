@@ -1,5 +1,166 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-08-07T07:13:19-07:00</updated><id>http://localhost:4000/</id><title type="html">Black Lantern Security</title><subtitle>Attack To Defend
-</subtitle><author><name>Black Lantern Security</name><email>info@blacklanternsecurity.com</email></author><entry><title type="html">What’s my exposure?</title><link href="http://localhost:4000/2017-01-01-cybersecurity-exposure/" rel="alternate" type="text/html" title="What’s my exposure?" /><published>2017-01-01T00:00:00-08:00</published><updated>2017-01-01T00:00:00-08:00</updated><id>http://localhost:4000/cybersecurity-exposure</id><content type="html" xml:base="http://localhost:4000/2017-01-01-cybersecurity-exposure/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2019-01-16T11:04:35-05:00</updated><id>http://0.0.0.0:4000/</id><title type="html">Black Lantern Security</title><subtitle>Attack To Defend
+</subtitle><author><name>Black Lantern Security</name><email>info@blacklanternsecurity.com</email></author><entry><title type="html">Leveraging Offensive Tools to Help the Blue Team</title><link href="http://0.0.0.0:4000/2019-01-07-offensive-tools-for-blue-team/" rel="alternate" type="text/html" title="Leveraging Offensive Tools to Help the Blue Team" /><published>2019-01-07T00:00:00-05:00</published><updated>2019-01-07T00:00:00-05:00</updated><id>http://0.0.0.0:4000/offensive-tools-for-blue-team</id><content type="html" xml:base="http://0.0.0.0:4000/2019-01-07-offensive-tools-for-blue-team/">&lt;p&gt;As attackers on a red-team engagement, we have a multitude of tools at our disposal.  Whether scanning a system or extracting passwords from memory, there’s almost always a perfect script or program for the job.  The defensive potential of these resources, however, is often overlooked.  Many offensive tools can be used to provide valuable data for the Blue Team in addition to compromising systems.&lt;/p&gt;
+
+&lt;p&gt;Utilizing attack tools on the blue-team side isn’t unheard-of.  In his book, &lt;em&gt;Offensive Countermeasures: The Art of Active Defense&lt;/em&gt;, &lt;a href=&quot;https://twitter.com/strandjs&quot;&gt;John Strand&lt;/a&gt; shows how every-day utilities and hacking tools can be used to frustrate and deter attackers.  &lt;a href=&quot;https://github.com/BloodHoundAD/BloodHound&quot;&gt;BloodHound&lt;/a&gt; is another excellent example of an offensive tool which provides invaluable data for defenders by visualizing privilege escalation paths in Active Directory.&lt;/p&gt;
+
+&lt;p&gt;I’ve recently encountered several situations in which the “unorthodox” use of security tools has made my job significantly easier.  Specifically, automating tasks associated with a &lt;a href=&quot;/cyberassessments/&quot;&gt;Risk Assessment&lt;/a&gt; (&lt;a href=&quot;https://csrc.nist.gov/csrc/media/publications/sp/800-30/rev-1/final/documents/sp800-30-rev1-ipd.pdf&quot;&gt;NIST 800-30&lt;/a&gt;).  Risk assessments tend to be more comprehensive than a standard adversarial engagement, since they require a thorough analysis of each aspect of the business.  This includes compiling an internal asset inventory list and enumerating host-based controls on endpoints.  As I will explain, this happens to be something which pentesting tools are quite good at!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/3hZac4L.jpg&quot; alt=&quot;what-if-i-told-you&quot; title=&quot;CrackMapExec is for Sysadmins?&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this article, I will demonstrate how to perform the following tasks for an organization, using only freely-available tools:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Create an internal asset inventory list&lt;/li&gt;
+  &lt;li&gt;Enumerate host-based controls on Windows systems&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Please keep in mind that although we are striving to find as many hosts as possible, this data will not be exhaustive.  Systems which are offline or unreachable during the scans will not be included in the results, so our asset inventory will reflect a “snapshot” of the network at the time of the scan.  The goal here is to take a &lt;strong&gt;&lt;em&gt;representative sample&lt;/em&gt;&lt;/strong&gt; of Windows systems on the network and analyze their security posture.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-1-preparation&quot;&gt;Step 1: Preparation&lt;/h2&gt;
+
+&lt;p&gt;Before we get started, you’ll need the following:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;A Linux OS with:
+    &lt;ul&gt;
+      &lt;li&gt;CrackMapExec&lt;/li&gt;
+      &lt;li&gt;Python 3.7&lt;/li&gt;
+      &lt;li&gt;Zmap&lt;/li&gt;
+      &lt;li&gt;Root access&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;A privileged network port which can (preferably) reach all subnets on ICMP and 445/TCP.&lt;/li&gt;
+  &lt;li&gt;Domain admin (or local admin on the target systems)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;step-2-scan-all-the-things-with-zmap&quot;&gt;Step 2: Scan All The Things With Zmap&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;The Automated Way:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We’ll leverage a Python script (written here at Black Lantern Security) to perform a Zmap scan and output a pretty asset list along the way.&lt;/p&gt;
+
+&lt;p&gt;The script will perform an initial ping scan of the entire private IP space.  Additional port scans can then be run on demand, only targetting active hosts.  At the default rate of 1Mbps, the sweep should take less than three hours to finish.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Run asset inventory Python script
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone github.com/blacklanternsecurity/zmap-asset-inventory
+ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;zmap-asset-inventory
+ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./zmap_asset_inventory.py &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 445
+ ...
+ &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;+] Port scan results &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;445/TCP written to /home/user/.asset_inventory/cache/zmap_port_445_2019-01-01_00-19-28.txt
+ ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Hosts with port 445 open are written to a text file as specified in the output:
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;head &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; 10 /home/user/.asset_inventory/cache/zmap_port_445&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.txt
+ 172.18.36.165
+ 172.18.124.83
+ 172.18.125.70
+ 172.18.129.245
+ 172.18.204.22
+ 172.18.204.62
+ 172.18.204.82
+ 172.18.204.159
+ 172.18.204.182
+ 172.18.204.229
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In addition, an asset_inventory.csv is generated which includes IP addresses, hostnames, and open ports:&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/KfsTsDw.png&quot; alt=&quot;zmap-example-csv&quot; title=&quot;Example CSV Output from Zmap&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;The Manual Way:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Create a blacklist file (blank is okay, but do include any critical systems/subnets that may be sensitive to Zmap or CrackMapExec)
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;blacklist.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Run zmap
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;zmap &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 445 &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; blacklist.txt &lt;span class=&quot;nt&quot;&gt;-B&lt;/span&gt; 1M 10.0.0.0/8 192.168.0.0/16 172.16.0.0/12 | tee 445_hosts.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;step-3-gather-data-on-host-based-controls&quot;&gt;Step 3: Gather Data on Host-Based Controls&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;“With great power comes great responsibility.”&lt;/strong&gt;
+Let’s do something nice with Domain Admin, for a change. :)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;We will now enumerate host-based controls for each of the systems found in the previous step.  In this example, we’re looking for the following services:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Malwarebytes&lt;/li&gt;
+  &lt;li&gt;Symantec Endpoint Protection (SEP)&lt;/li&gt;
+  &lt;li&gt;Symantec Management Agent (Altiris)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Using CrackMapExec, we’ll capture the output of a shell command for each Windows system.  &lt;code class=&quot;highlighter-rouge&quot;&gt;sc query&lt;/code&gt; will be used to list all Windows services, then filtered with &lt;code class=&quot;highlighter-rouge&quot;&gt;findstr&lt;/code&gt; to output only the services we’re interested in.&lt;/p&gt;
+
+&lt;p&gt;For example, &lt;code class=&quot;highlighter-rouge&quot;&gt;sc query | findstr /i &quot;symantec malwarebytes&quot;&lt;/code&gt; might return the following output:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/WOVmadW.png&quot; alt=&quot;sc-query-example-output&quot; title=&quot;Example output from sc query&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Of course, be sure to change the keywords to match the services that you’re looking for.  Err on the side of collecting too much data rather than not enough, since unwanted output will be stripped out in the next step.  Also keep in mind that the credentials in use here will need local admin privileges on the target systems in order for the command to execute.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;cme smb 445_hosts.txt &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; &amp;lt;username&amp;gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &amp;lt;password&amp;gt; &lt;span class=&quot;nt&quot;&gt;-x&lt;/span&gt; ‘sc query | findstr /i “symantec malwarebytes”’ | tee cme_output_1.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You should see service names displayed in the output:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/e9VRUT8.png&quot; alt=&quot;cme-example-output&quot; title=&quot;Example Output from CrackMapExec&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE: You may need to run CrackMapExec multiple times.&lt;/strong&gt;
+Even the stable version of CrackMapExec is a relatively unwieldy and often hangs before completion.  No disrespect to its author &lt;a href=&quot;https://twitter.com/byt3bl33d3r&quot;&gt;byt3bl33d3r&lt;/a&gt; of course; the tool is fantastic but suffers from instability due to the scope of its functionality and the complexity of the SMB protocol.
+&lt;strong&gt;I recommend running it twice in opposite directions.&lt;/strong&gt;  Basically, if you see excessive Python errors or it fails to finish, press CTRL+C to stop the scan.  Then reverse the targets file and start it again:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;tac 445_hosts.txt &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 445_hosts_reversed.txt
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;cme smb 445_hosts_reversed.txt &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; &amp;lt;username&amp;gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &amp;lt;password&amp;gt; &lt;span class=&quot;nt&quot;&gt;-x&lt;/span&gt; ‘sc query | findstr /i “symantec malwarebytes”’ | tee cme_output_2.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This results in fairly good coverage.  It’s okay if we have some overlap, since the results are automatically deduplicated in the next step.  Again, we’re not looking for a comprehensive list, only a &lt;em&gt;representative sample&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-4-parse-gathered-data&quot;&gt;Step 4: Parse Gathered Data&lt;/h2&gt;
+
+&lt;p&gt;Parsing the CrackMapExec output could be a bit of a pain.  Thankfully, we’ve already done the hard work of writing a parsing tool.  Our script will output pretty percentages for each service, broken down by workstations and servers.  In addition, it can output to CSV for host-specific results.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Edit the &lt;strong&gt;services.json&lt;/strong&gt; file to reflect the software you’re looking for.  Here’s an example:
+    &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;_friendly_name_&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;case-insensitive Windows service name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Symantec&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SYMANTEC ENDPOINT PROTECTION&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Altiris&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SYMANTEC MANAGEMENT AGENT&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Malwarebytes&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MALWAREBYTES&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Run the parsing script, passing in the CrackMapExec output from the previous step:
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone github.com/blacklanternsecurity.com/parse-crackmapexec
+ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;parse-crackmapexec/
+ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./parse_cme.py &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; host_based_controls.csv cme_output&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.txt
+
+ Hosts Analyzed:   652
+
+      Service             Total               Workstations        Servers             Undetermined        
+ &lt;span class=&quot;o&quot;&gt;=========================================================================================================&lt;/span&gt;
+      Symantec            624/652 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;95.7%&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;     536/557 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;96.2%&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;     16/19 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;84.2%&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;       72/76 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;94.7%&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+      Altiris             554/652 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;85.0%&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;     533/557 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;95.7%&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;     13/19 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;68.4%&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;       8/76 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;10.5%&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+      Malwarebytes        9/652 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1.4%&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;        3/557 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.5%&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;        6/19 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;31.6%&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;        0/76 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.0%&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Here’s an example of the CSV contents:&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/cWt7Zkj.png&quot; alt=&quot;cme-example-csv&quot; title=&quot;Example CSV Output from CrackMapExec&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;in-summary&quot;&gt;In Summary&lt;/h2&gt;
+
+&lt;p&gt;Perhaps Zmap and CrackMapExec aren’t the most elegant solutions, but they certainly are functional tools that can provide insightful data for Blue Team.  &lt;strong&gt;The potential of attack tools often extends beyond their intended use-case.&lt;/strong&gt;  All that is needed is a little abstraction to interpret the output into actionable data.&lt;/p&gt;</content><author><name>Joel Moore</name><email>joel.moore@blacklanternsecurity.com</email></author><summary type="html">As attackers on a red-team engagement, we have a multitude of tools at our disposal. Whether scanning a system or extracting passwords from memory, there’s almost always a perfect script or program for the job. The defensive potential of these resources, however, is often overlooked. Many offensive tools can be used to provide valuable data for the Blue Team in addition to compromising systems.</summary></entry><entry><title type="html">What’s my exposure?</title><link href="http://0.0.0.0:4000/2017-01-01-cybersecurity-exposure/" rel="alternate" type="text/html" title="What’s my exposure?" /><published>2017-01-01T00:00:00-05:00</published><updated>2017-01-01T00:00:00-05:00</updated><id>http://0.0.0.0:4000/cybersecurity-exposure</id><content type="html" xml:base="http://0.0.0.0:4000/2017-01-01-cybersecurity-exposure/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
 
 &lt;p&gt;Financial institutions and businesses have been making risk-based decisions in order to protect what’s most important since their inception. The addition of information-systems and applications only serves to extend many of the concepts they are already familiar with, including regulations, risk, assets, intellectual property, vulnerabilities, threats, and threat multipliers. It’s important to understand how cybersecurity requirements for these systems add to what is already a long list of statutory and regulatory requirements. However, what’s more important is not to lose sight of the fact that those information-systems and security controls exist to support the business, not the other way around. They should be increasing productivity, driving revenue, generating profits and reducing risk, not dragging them in the opposite direction. Financial institutions understand how to analyse risk in order to better protect their investments; cybersecurity should be no different. Regulatory requirements and compliance will start an organization down the right path. However, an honest and thorough approach to securing critical information-systems and the data they contain will simultaneously hit those “check boxes” and smartly align those resources with business objectives.&lt;/p&gt;
 
@@ -200,7 +361,7 @@ http://www.auditscripts.com/download/2742/&lt;/p&gt;
 
 &lt;p&gt;[16]&lt;a id=&quot;reference-16&quot;&gt;&lt;/a&gt; http://www.isaca.org/cobit/pages/default.aspx&lt;/p&gt;
 
-&lt;p&gt;[17]&lt;a id=&quot;reference-17&quot;&gt;&lt;/a&gt; https://www.cisecurity.org/critical-controls.cfm&lt;/p&gt;</content><author><name>Dr. Philip Hartlieb</name><email>philip@blacklanternsecurity.com</email></author><summary type="html">What’s my exposure?</summary></entry><entry><title type="html">Signed Java Applet - Water Hole Attack</title><link href="http://localhost:4000/2016-05-01-signed-java-applet/" rel="alternate" type="text/html" title="Signed Java Applet - Water Hole Attack" /><published>2016-05-01T00:00:00-07:00</published><updated>2016-05-01T00:00:00-07:00</updated><id>http://localhost:4000/signed-java-applet</id><content type="html" xml:base="http://localhost:4000/2016-05-01-signed-java-applet/">&lt;p&gt;&lt;img src=&quot;/assets/img/signed-java-applet/java_warning.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;[17]&lt;a id=&quot;reference-17&quot;&gt;&lt;/a&gt; https://www.cisecurity.org/critical-controls.cfm&lt;/p&gt;</content><author><name>Dr. Philip Hartlieb</name><email>philip@blacklanternsecurity.com</email></author><summary type="html">What’s my exposure?</summary></entry><entry><title type="html">Signed Java Applet - Water Hole Attack</title><link href="http://0.0.0.0:4000/2016-05-01-signed-java-applet/" rel="alternate" type="text/html" title="Signed Java Applet - Water Hole Attack" /><published>2016-05-01T00:00:00-04:00</published><updated>2016-05-01T00:00:00-04:00</updated><id>http://0.0.0.0:4000/signed-java-applet</id><content type="html" xml:base="http://0.0.0.0:4000/2016-05-01-signed-java-applet/">&lt;p&gt;&lt;img src=&quot;/assets/img/signed-java-applet/java_warning.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;One of the common attack vectors deals with water hole attacks. These attacks are used to tempt users to click on documents, links, and content that will allow execution onto their box. These can take many forms: Microsoft Office macros (Excel, Word), Flash enabled sites, Javascript attacks, and specifically Java signed applets. We’re going to walk you through creating your own java signing certificate (If you don’t have one) and then how to code sign your java applet within NetBeans.&lt;/p&gt;
 
